@@ -25,9 +25,10 @@ function addRoom(){
 }
 
 
-function getData() {firebase.database().ref("/").on('value', function(snapshot) {document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {childKey  = childSnapshot.key;
+function getData() {firebase.database().ref("/").on('value', function(snapshot) {document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {
+      childKey  = childSnapshot.key;
+      console.log(childKey);
        Room_names = childKey;
-       console.log("Room Name - "+room_names);
        row = "<div class='roomname' id="+Room_names+" onclick='reto_roomname(this.id)' >#"+ Room_names +"</div><hr>";
       document.getElementById("output").innerHTML += row;
       });});}
